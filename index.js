@@ -1,35 +1,51 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-/**
- * <div id="parent">
-    * <div id="child">
-        * <h1> I am an h1 tag</h1>
-        * <h2>I am h2 tag</h2>
-    * </div>
-    * <div id=child2>
-          <h1>I am H1 tag</h1>
-          <h2>I am h2 tag</h2>
-      </div>
- * </div>
- */
+
+// const heading=React.createElement("h1",{id:"heading"},"Namaste React");
+// console.log(heading);
+// const jsxHeading=(<h1 id="heading">This is Namaste React using JSX</h1>);
+// console.log(heading);
 
 
-// const heading=React.createElement(
-//     "h1",
-//     {id:"heading"},
-//     "Hello World from React!"); //creates and returns an object 
-//     const root=ReactDOM.createRoot(document.getElementById("root"));
-//     root.render(heading);
-const parent=React.createElement("div",{id:"parent"},
-[React.createElement("div",{id:"child"},
-[React.createElement("h1",{},"I am  Thanishka"),
-React.createElement("h2",{id:"child2"},"I am h2 tag")]
-),
-React.createElement("div",{id:"child2"},
-[React.createElement("h1",{},"I am an H1 Tag"),
-React.createElement("h2",{id:"child22"},"I am h2 tag")]
-)]
+//React Element
+const heading1=(
+<h1 className="head">Namaste React </h1>
+)
+//one way of writing functional component
+const heading=()=>(   
+    <h1 className="heading">This is Namaste React</h1>
+ );
+//one way of writing functional component
+const HeadingComponent=()=>{
+   return <h1 className="heading2">This is Namaste React</h1>
+}
+
+const Title=()=>(
+    <h1>This is Title Tag</h1>
 );
 
+//Component Composition
+const Heading=()=>(
+    <div id="tag">
+    <Title/>
+    <Title></Title>
+    <h1>This is Heading Tag</h1>
+    </div>
+);
+const elem=<span>React Element</span>
+
+const title1=(
+    {elem},
+    <h1>This is Title 1</h1>
+);
+//react element inside a functional component
+const HeadingComponent2=()=>(
+    <div id="container">
+    {title}
+    <h1 className="heading">NAmaste React Function</h1>
+    </div>
+)
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+//root.render(heading); //React element rendering
+
+root.render(<Heading/>); //React Functional Component Rendering
